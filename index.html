@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <script type="module">
+            import init from './front.js';
+            const run = async () => {
+                const wam = await init('./front_bg.wasm');
+                window.wam = wam;
+            };
+            run();
+        </script>
+    </head>
+    <body>
+        <button
+            type="button"
+            class="btn submit"
+            onclick="wam.validate_registration_token('http://localhost:80', 'mytoken')">
+            Send
+        </button>
+    </body>
+</html>
